@@ -1,23 +1,11 @@
---# First Create the database
---CREATE DATABASE MTG_template;
-
---# Connect to the database, so that our tables, etc., will be there
--- \c  MTG_template
- 
 /*
-# When you run these commands at Heroku, you wont need (or be able to) create
-# your own separate database first. It will already be created and you will
-# be connected to it.
-
-
-# A few helpful commands you might want during the process:
-# \dt - Lists the tables
-# \d+ public.user - Shows the details of the user table
-# DROP TABLE public.user - Removes the user table completely so we can re-create it
-# \q - Quit the application and go back to the regular command prompt
+This may not seem like much at this time. However, I have left off some tables
+from this initial careation of tables. I have done so for the purposes of
+having oppertunities for updating the database as the sumester continues. 
 */
 
---IF TABLE public."user" EXISTS (DROP TABLE public."user");
+
+
 CREATE TABLE public.user
 (
 	id             SERIAL        NOT NULL PRIMARY KEY,
