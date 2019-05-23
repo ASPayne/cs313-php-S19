@@ -1,4 +1,6 @@
 <?PHP
+$id = "";
+$url = "";
 function find($id)
 {
     $resourceName = "cards";
