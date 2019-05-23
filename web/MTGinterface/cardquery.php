@@ -5,7 +5,7 @@ function find($id)
 {
     $resourceName = "cards";
 
-    $url      = sprintf("%s/%s/%s", "https://api.magicthegathering.io/v1", $resourceName, $id);
+    $GLOBALS['url']      = sprintf("%s/%s/%s", "https://api.magicthegathering.io/v1", $resourceName, $id);
     $response = fetch($url);
 
     return $response;
