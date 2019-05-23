@@ -25,7 +25,7 @@ echo '"' . $url . '"<br><br>';
 echo $cardIdNum . "<br><br>";
 
 
-echo "name = " . $card->name . "<br><br>";
+echo "name = " . $card['name'] . "<br><br>";
 
 
 var_dump($card);
