@@ -24,6 +24,10 @@ echo '"' . $url . '"<br><br>';
 
 echo $cardIdNum . "<br><br>";
 
+
+echo "name = " . $card->name . "<br><br>";
+
+
 var_dump($card);
 echo "<br><br>";
     foreach ($card[card] as $x => $x_value) {
