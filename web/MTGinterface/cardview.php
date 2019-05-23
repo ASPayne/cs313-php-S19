@@ -19,6 +19,9 @@ include '../header.php';
 <body>
     
 <?PHP
+
+echo '"' . $url . '"<br><br>';
+
 echo $cardIdNum . "<br><br>";
 
 var_dump($card);
