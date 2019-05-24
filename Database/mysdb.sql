@@ -4,6 +4,7 @@ from this initial careation of tables. I have done so for the purposes of
 having oppertunities for updating the database as the sumester continues. 
 */
 
+
 CREATE TABLE public.user
 (
 	id             		SERIAL        NOT NULL PRIMARY KEY,
@@ -11,12 +12,40 @@ CREATE TABLE public.user
 	password       		VARCHAR(100)  NOT NULL,
 	display_name   		VARCHAR(100)  NOT NULL,
 	email          		VARCHAR(100),
-	created_by     		int           NOT NULL REFERENCES PUBLIC.USER(id),
+	created_by     		int           NOT NULL,
 	creation_date  		DATE          NOT NULL,
-	last_updated_by 	int           NOT NULL REFERENCES PUBLIC.USER(id),
+	last_updated_by 	int           NOT NULL,
 	last_update_date  	DATE          NOT NULL 
 );
 
+INSERT INTO public.USER (
+id             	
+,username       	
+,password       	
+,display_name	
+,created_by     	
+,creation_date  	
+,last_updated_by 
+,last_update_date
+)
+VALUES(
+DEFAULT
+, 'SYSADMIN'
+, 'PASSWORD'
+, 'SYSADMIN'
+, 1
+, statement_timestamp()
+, 1
+, statement_timestamp()
+);
+
+
+ALTER TABLE PUBLIC.USER(
+	constraint (created_by) REFERENCES public.user(id)
+);
+ALTER TABLE PUBLIC.USER(
+	constraint (last_updated_by) REFERENCES public.user(id)
+);
 
 CREATE TABLE public.CardStorage
 (
