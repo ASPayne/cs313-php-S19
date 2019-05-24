@@ -19,10 +19,16 @@ include '../header.php';
 <body>
     
 <img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['nam'];?>" style="float:left;margin-right:15px;">
+<h1> <?PHP echo $card['name'];?> </h1>
+<br/>
+<p> <?PHP echo $card['text'];?> </p>
+<br/><br/><br/><br/>
 
+<button>add to deck</button>
+<br>
 
 <?PHP
-
+/*
 echo '"' . $url . '"<br><br>';
 
 echo $cardIdNum . "<br><br>";
@@ -44,7 +50,7 @@ echo "<br><br>";
         }
         echo "Key=" . $x . ", Value=" . $x_value;
         echo "<br><br>";
-    }
+    }*/
     ?>
 
 </body>
