@@ -18,6 +18,9 @@ include '../header.php';
 </header>
 <body>
     
+<img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['nam'];?>" style="float:left;margin-right:15px;">
+
+
 <?PHP
 
 echo '"' . $url . '"<br><br>';
@@ -28,7 +31,7 @@ echo $cardIdNum . "<br><br>";
 echo "name = " . $card['name'] . "<br><br>";
 
 
-var_dump($card);
+#var_dump($card);
 echo "<br><br>";
     foreach ($card as $x => $x_value) {
         foreach ($x_value as $y => $y_value) {
