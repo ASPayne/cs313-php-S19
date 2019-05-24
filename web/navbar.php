@@ -23,10 +23,10 @@ switch ($current_file) {
     case "pages.php":
         $NavBarActive["Pages"] = " active";
         break;
-    case "cardview.php":
+    case "/MTGinterface/cardview.php":
         $NavBarActive["CardView"] = " active";
         break;
-    case "deckview.php":
+    case "/MTGinterface/deckview.php":
         $NavBarActive["DeckView"] = " active";
         break;
     default:
