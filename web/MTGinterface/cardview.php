@@ -45,7 +45,7 @@ function AddToDeck(str) {
       document.getElementById("wasAdded").innerHTML = "added to deck";
     }
   };
-  xhttp.open("GET", "addCardToDeck.php?id="+str, true);
+  xhttp.open("GET", "addCardToDeck.php?id="+str, false);
   xhttp.send();
 }
 </script>
