@@ -46,7 +46,7 @@ function AddToDeck(str) {
     }
   };
   xhttp.open("GET", "addCardToDeck.php?id="+str, true);
-  xhttp.send();
+  xhttp.send("<?php echo "id=".$cardIdNum;?>");
 }
 </script>
 
