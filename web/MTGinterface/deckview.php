@@ -19,12 +19,50 @@ include '../header.php';
 </header>
 <body>
     
-<h1>Scripture Resources</h1>
+
+<!--
+<form action=""> 
+  <select name="customers" onchange="showCustomer(this.value)">
+    <option value="">Select a customer:</option>
+    <option value="ALFKI">Alfreds Futterkiste</option>
+    <option value="NORTS ">North/South</option>
+    <option value="WOLZA">Wolski Zajazd</option>
+  </select>
+</form>
+<br>
+<div id="txtHint">Customer info will be listed here...</div>
+
+<script>
+function showCustomer(str) {
+  var xhttp;  
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "getcustomer.asp?q="+str, true);
+  xhttp.send();
+}
+</script>
+-->
+
+
+
+
+
+
+
+<h1>CardStorage</h1>
   <br>
 
   <?PHP
-  foreach ($db->query('SELECT book, chapter, verse, content FROM scriptures') as $row) {
-    echo '<b>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</b> - "' . $row['content'] . '"';
+  foreach ($db->query('SELECT multiverseid, CardName, CardTypes FROM CardStorage') as $row) {
+    echo '<b>' . $row['multiverseid'] . ' ' . $row['CardName'] . ':' . $row['CardStorage'] . '</b>';
     echo '<br/>';
   }
   ?>

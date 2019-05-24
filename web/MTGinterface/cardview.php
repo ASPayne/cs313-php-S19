@@ -24,8 +24,32 @@ include '../header.php';
 <p> <?PHP echo $card['text'];?> </p>
 <br/><br/><br/><br/>
 
-<button>add to deck</button>
+<form action=""> 
+  <button name="AddToDeck" onclick="addtodeck(<?PHP echo $card['multiverseid'];?>)">
+    add to deck
+  </button>
+</form>
 <br>
+<div id="wasAdded"></div>
+
+<script>
+function AddToDeck(str) {
+  var xhttp;  
+  if (str == "") {
+    document.getElementById("wasAdded").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("wasAdded").innerHTML = "added to deck";
+    }
+  };
+  xhttp.open("GET", "addCardToDeck.php?id="+str, true);
+  xhttp.send();
+}
+</script>
+
 
 <?PHP
 /*

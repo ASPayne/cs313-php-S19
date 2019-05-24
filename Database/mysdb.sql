@@ -20,15 +20,18 @@ CREATE TABLE public.user
 );
 
 
-CREATE TABLE public.API
+CREATE TABLE public.CardStorage
 (
-	id INT PRIMARY KEY
+	id SERIAL PRIMARY KEY,
+	multiverseid INT NOT NULL,
+	CardName VARCHAR(100) NOT NULL,
+	CardTypes VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE public.inventory
 (
 	id              SERIAL 		NOT NULL PRIMARY KEY,
-	API_card_num    INT         NOT NULL REFERENCES public.API(id),
+	card_num    INT         NOT NULL REFERENCES public.CardStorage(id),
 	card_owner	    INT			NOT NULL REFERENCES PUBLIC.USER(id),
 	num_owned   	INT			NOT NULL,
 	created_by     int           NOT NULL REFERENCES PUBLIC.USER(id),
@@ -40,7 +43,7 @@ CREATE TABLE public.inventory
 CREATE TABLE public.deck
 (
 	id              SERIAL 		NOT NULL PRIMARY KEY,
-	API_card_num    INT         NOT NULL REFERENCES public.API(id),
+	card_num    INT         NOT NULL REFERENCES public.CardStorage(id),
 	card_owner	    INT			NOT NULL REFERENCES PUBLIC.USER(id),
 	num_owned   	INT			NOT NULL,
 	created_by     int           NOT NULL REFERENCES PUBLIC.USER(id),
