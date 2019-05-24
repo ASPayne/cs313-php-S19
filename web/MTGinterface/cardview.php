@@ -25,7 +25,7 @@ include '../header.php';
 <br/><br/><br/><br/>
 
 <form action=""> 
-  <button name="AddToDeck" onclick="addtodeck('<?PHP echo $cardIdNum;?>')">
+  <button onclick="addtodeck('<?PHP echo $cardIdNum;?>')">
     add to deck
   </button>
 </form>
@@ -42,10 +42,10 @@ function AddToDeck(str) {
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("wasAdded").innerHTML = "added to deck";
+      document.getElementById("wasAdded").innerHTML = "<?PHP echo $cardIdNum;?> added to deck";
     }
   };
-  xhttp.open("POST", "addCardToDeck.php?id="+str, true;
+  xhttp.open("GET", "addCardToDeck.php?id="+str, true);
   xhttp.send();
 }
 </script>
