@@ -88,9 +88,9 @@ DEFAULT
 , 'PASSWORD'
 , 'PAYNEWALKER'
 , (SELECT id FROM public.user where username = 'SYSADMIN')
-, SYSDATE
+, statement_timestamp()
 , (SELECT id FROM public.user where username = 'SYSADMIN')
-, SYSDATE
+, statement_timestamp()
 );
 
 INSERT INTO PUBLIC.CardStorage
@@ -123,7 +123,7 @@ VALUES
 , (select id from public.USER where username = 'TESTUSER')
 , 1
 , (SELECT id FROM public.user where username = 'SYSADMIN')
-, SYSDATE
+, statement_timestamp()
 , (SELECT id FROM public.user where username = 'SYSADMIN')
-, SYSDATE
+, statement_timestamp()
 );
