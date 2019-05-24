@@ -30,7 +30,7 @@ echo "name = " . $card['name'] . "<br><br>";
 
 var_dump($card);
 echo "<br><br>";
-    foreach ($card[card] as $x => $x_value) {
+    foreach ($card as $x => $x_value) {
         foreach ($x_value as $y => $y_value) {
             foreach ($y_value as $z => $z_value) {
                 echo "3Key=" . $y . ", 3Value=" . $z_value;

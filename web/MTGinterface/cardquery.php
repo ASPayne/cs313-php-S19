@@ -6,16 +6,16 @@ function find($id)
     $resourceName = "cards";
 
     $GLOBALS['url'] = sprintf("%s/%s/%s", "https://api.magicthegathering.io/v1", $resourceName, $id);
-    $response = fetch($GLOBALS['url']);
+    $response = fetch($GLOBALS['url'], substr($resourceName, 0, strlen($resourceName) - 1));
 
     return $response;
 }
 
-function fetch($loc)
+function fetch($loc, $resourceName)
 {
     $response = json_decode(file_get_contents($loc), true);
 
-    return $response;
+    return $response[$resourceName];
 }
 
 if (isset($_GET["id"])) {
