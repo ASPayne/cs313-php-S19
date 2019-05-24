@@ -53,16 +53,19 @@ function showCustomer(str) {
 
 
 
-
-
-
-
-<h1>CardStorage</h1>
+<h1>userDeck</h1>
   <br>
 
   <?PHP
-  foreach ($db->query('SELECT multiverseid, CardName, CardTypes FROM CardStorage') as $row) {
-    echo '<b>' . $row['multiverseid'] . ' ' . $row['CardName'] . ':' . $row['CardStorage'] . '</b>';
+  foreach ($db->query(
+  'Select cs.CardName, cs.CardTypes from public.cardstorage cs 
+  Join 
+  public.deck d
+  on d.card_num = cs.id
+  join public.user u
+  on d.card_owner = u.id;')
+ as $row) {
+    echo '<b>' . $row['cardname'] . ' ' . $row['Cardtypes'] . ':' . '</b>';
     echo '<br/>';
   }
   ?>

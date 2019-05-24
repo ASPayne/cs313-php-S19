@@ -40,12 +40,10 @@ DEFAULT
 );
 
 
-ALTER TABLE PUBLIC.USER(
-	constraint (created_by) REFERENCES public.user(id)
-);
-ALTER TABLE PUBLIC.USER(
-	constraint (last_updated_by) REFERENCES public.user(id)
-);
+ALTER TABLE PUBLIC.USER
+	constraint (created_by) REFERENCES public.user(id);
+ALTER TABLE PUBLIC.USER
+	constraint (last_updated_by) REFERENCES public.user(id);
 
 CREATE TABLE public.CardStorage
 (
@@ -71,7 +69,7 @@ CREATE TABLE public.deck
 (
 	id              	SERIAL 		NOT NULL PRIMARY KEY,
 	card_num    		INT         NOT NULL REFERENCES public.CardStorage(id),
-	card_owner	    	INT			NOT NULL REFERENCES PUBLIC.USER(id),
+	deck_owner	    	INT			NOT NULL REFERENCES PUBLIC.USER(id),
 	num_owned   		INT			NOT NULL,
 	created_by     		int         NOT NULL REFERENCES PUBLIC.USER(id),
 	creation_date  		DATE        NOT NULL,
@@ -139,7 +137,7 @@ DEFAULT
 INSERT INTO public.deck(
 id              
 ,card_num    	
-,card_owner	    
+,deck_owner	    
 ,num_owned   	
 ,created_by     	
 ,creation_date  	
