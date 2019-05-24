@@ -18,14 +18,14 @@ include '../header.php';
 </header>
 <body>
     
-<img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['nam'];?>" style="float:left;margin-right:15px;">
+<img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['name'];?>" style="float:left;margin-right:15px;">
 <h1> <?PHP echo $card['name'];?> </h1>
 <br/>
 <p> <?PHP echo $card['text'];?> </p>
 <br/><br/><br/><br/>
 
 <form action=""> 
-  <button name="AddToDeck" onclick="addtodeck(<?PHP echo $card['multiverseid'];?>)">
+  <button name="AddToDeck" onclick="addtodeck('<?PHP echo $cardIdNum;?>')">
     add to deck
   </button>
 </form>
@@ -45,7 +45,7 @@ function AddToDeck(str) {
       document.getElementById("wasAdded").innerHTML = "added to deck";
     }
   };
-  xhttp.open("GET", "addCardToDeck.php?id="+str, false);
+  xhttp.open("POST", "addCardToDeck.php?id="+str, true;
   xhttp.send();
 }
 </script>
