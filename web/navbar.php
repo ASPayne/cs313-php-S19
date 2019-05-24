@@ -45,9 +45,9 @@ switch ($current_file) {
     <li class="navitem<?PHP echo $NavBarActive["About"]; /*if ($about_active) { echo " active" ;}*/ ?> ">
         <a href="/about-us.php">About Us</a></li>
     <li class="navitem<?PHP echo $NavBarActive["Pages"]; /*if ($login_active) {echo " active" ;}*/ ?> ">
-        <a href="MTGinterface/cardview.php">Card Viewer</a></li>
+        <a href="/MTGinterface/cardview.php">Card Viewer</a></li>
     <li class="navitem<?PHP echo $NavBarActive["Pages"]; /*if ($login_active) {echo " active" ;}*/ ?> ">
-        <a href="MTGinterface/deckview.php">Deck Viewer</a></li>
+        <a href="/MTGinterface/deckview.php">Deck Viewer</a></li>
     <li class="navitem<?PHP echo $NavBarActive["Pages"]; /*if ($login_active) {echo " active" ;}*/ ?> ">
         <a href="/pages.php">Pages</a></li>
     <li  class="navitem login<?PHP echo $NavBarActive["Login"]; /*if ($login_active) {echo " active" ;}*/ ?>">
