@@ -66,9 +66,9 @@ DEFAULT
 , 'PASSWORD'
 , 'SYSADMIN'
 , 1
-, SYSDATE
+, statement_timestamp()
 , 1
-, SYSDATE
+, statement_timestamp()
 );
 
 
