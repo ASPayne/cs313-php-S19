@@ -116,6 +116,9 @@ ul.navbar li.navitem.login li.navitem.active {
   text-align: center;
   top: 30%;
 }
+.copyright {
+  font-size: 10px;
+}
 
 /* to be used at a later time*/
 /*.gtk_color_scheme {
