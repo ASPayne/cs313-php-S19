@@ -7,7 +7,7 @@ include 'databaseconnect.php';
 $sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 from CardStorage cs join deck d 
 on cs.id = d.card_num 
-where d.deck_owner = ?";
+where d.deck_owner = " . $_GET['user'];
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['user']);
