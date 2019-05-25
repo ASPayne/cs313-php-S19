@@ -70,7 +70,7 @@ VALUES
 (DEFAULT,452902,'Assassin''s Trophy','Instant','{B}{G}',2,'','','Destroy target permanent an opponent controls. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle their library.', (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp(), (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp()),
 (DEFAULT,457301,'Bedevil','Instant','{B}{B}{R}',3,'','','Destroy target artifact, creature, or planeswalker.', (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp(), (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp()),
 (DEFAULT,457389,'Blood Crypt','Land','','','','','({T}: Add {B} or {R}.)
-As Blood Crypt enters the battlefield, you may pay 2 life. If you don\'t, it enters the battlefield tapped.', (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp(), (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp()));
+As Blood Crypt enters the battlefield, you may pay 2 life. If you don''t, it enters the battlefield tapped.', (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp(), (SELECT id FROM public.user where username = 'SYSADMIN'), statement_timestamp()));
 
 
 INSERT INTO public.deck(
