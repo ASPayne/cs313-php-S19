@@ -47,10 +47,19 @@ ALTER TABLE PUBLIC.USER
 
 CREATE TABLE public.CardStorage
 (
-	id SERIAL PRIMARY KEY,
-	multiverseid INT NOT NULL,
-	CardName VARCHAR(100) NOT NULL,
-	CardTypes VARCHAR(50) NOT NULL
+	id 					SERIAL 		PRIMARY KEY,
+	multiverseid 		INT 			NOT NULL,
+	CardName 			VARCHAR(100) 	NOT NULL,
+	CardTypes 			VARCHAR(50) 	NOT NULL,
+	ManaCost 			VARCHAR(50)
+	CMC      			INT,
+	Power    			VARCHAR(3),
+	Toughness			VARCHAR(3),
+	Text                VARCHAR(300),
+	created_by     		int           	NOT NULL,
+	creation_date  		DATE          	NOT NULL,
+	last_updated_by 	int           	NOT NULL,
+	last_update_date  	DATE          	NOT NULL 
 );
 
 CREATE TABLE public.inventory
@@ -77,80 +86,3 @@ CREATE TABLE public.deck
 	last_update_date 	DATE        NOT NULL 
 );
 
-INSERT INTO public.USER (
-id             	
-,username       	
-,password       	
-,display_name	
-,created_by     	
-,creation_date  	
-,last_updated_by 
-,last_update_date
-)
-VALUES(
-DEFAULT
-, 'SYSADMIN'
-, 'PASSWORD'
-, 'SYSADMIN'
-, 1
-, statement_timestamp()
-, 1
-, statement_timestamp()
-);
-
-
-INSERT INTO public.USER (
-id             	
-,username       	
-,password       	
-,display_name	
-,created_by     	
-,creation_date  	
-,last_updated_by 
-,last_update_date
-)
-VALUES(
-DEFAULT
-, 'TESTUSER'
-, 'PASSWORD'
-, 'PAYNEWALKER'
-, (SELECT id FROM public.user where username = 'SYSADMIN')
-, statement_timestamp()
-, (SELECT id FROM public.user where username = 'SYSADMIN')
-, statement_timestamp()
-);
-
-INSERT INTO PUBLIC.CardStorage
-(
-id
-, multiverseid
-, CardName
-, CardTypes
-)
-VALUES(
-DEFAULT
-, 386616
-, 'Narset, Enlightened Master'
-, 'Creature'
-);
-
-INSERT INTO public.deck(
-id              
-,card_num    	
-,deck_owner	    
-,num_owned   	
-,created_by     	
-,creation_date  	
-,last_updated_by 
-,last_update_date)
-VALUES
-(
-	DEFAULT
-, (select id FROM public.CardStorage where multiverseid = 386616)
-, (select id from public.USER where username = 'TESTUSER')
-, 1
-, (SELECT id FROM public.user where username = 'SYSADMIN')
-, statement_timestamp()
-, (SELECT id FROM public.user where username = 'SYSADMIN')
-, statement_timestamp()
-);

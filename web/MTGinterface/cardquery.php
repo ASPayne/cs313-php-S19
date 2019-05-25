@@ -23,7 +23,7 @@ if (isset($_GET["id"])) {
     $card = find($cardIdNum);
 }
 else{
-    $cardIdNum = 78697;
-    $card = find(78697);
+    $cardIdNum = 433014;
+    $card = find(433014);
 }
 ?>
