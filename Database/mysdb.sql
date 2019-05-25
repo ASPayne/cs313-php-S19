@@ -51,7 +51,7 @@ CREATE TABLE public.CardStorage
 	multiverseid 		INT 			NOT NULL,
 	CardName 			VARCHAR(100) 	NOT NULL,
 	CardTypes 			VARCHAR(50) 	NOT NULL,
-	ManaCost 			VARCHAR(50)
+	ManaCost 			VARCHAR(50),
 	CMC      			INT,
 	Power    			VARCHAR(3),
 	Toughness			VARCHAR(3),
