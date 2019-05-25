@@ -72,8 +72,7 @@ id
 ,last_updated_by 
 ,last_update_date)
 VALUES
-(
-DEFAULT
+( DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 433014)
 , (select id from public.USER where username = 'TESTUSER')
 , 1
@@ -82,7 +81,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 452902)
 , (select id from public.USER where username = 'TESTUSER')
 , 2
@@ -91,7 +90,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 457301)
 , (select id from public.USER where username = 'TESTUSER')
 , 4
@@ -100,7 +99,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 461156)
 , (select id from public.USER where username = 'TESTUSER')
 , 1
@@ -109,7 +108,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 457389)
 , (select id from public.USER where username = 'TESTUSER2')
 , 2
@@ -118,7 +117,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 461112)
 , (select id from public.USER where username = 'TESTUSER2')
 , 3
@@ -127,7 +126,7 @@ DEFAULT
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
 ),
-DEFAULT
+(DEFAULT
 , (select id FROM public.CardStorage where multiverseid = 433014)
 , (select id from public.USER where username = 'TESTUSER2')
 , 1
@@ -135,5 +134,4 @@ DEFAULT
 , statement_timestamp()
 , (SELECT id FROM public.user where username = 'SYSADMIN')
 , statement_timestamp()
-)
-;
+);

@@ -1,36 +1,30 @@
 <?php
-$mysqli = new mysqli("servername", "username", "password", "dbname");
-if($mysqli->connect_error) {
-  exit('Could not connect');
-}
+include 'databaseconnect.php';
 
-$sql = "SELECT customerid, companyname, contactname, address, city, postalcode, country
-FROM customers WHERE customerid = ?";
+#$sql = "SELECT customerid, companyname, contactname, address, city, postalcode, country
+#FROM customers WHERE customerid = ?";
+
+$sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
+from CardStorage cs join deck d 
+on cs.id = d.card_num 
+where d.deck_owner = ?";
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $_GET['q']);
+$stmt->bind_param("s", $_GET['user']);
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result($cid, $cname, $name, $adr, $city, $pcode, $country);
+$stmt->bind_result($num_owned, $cname, $manacost);
 $stmt->fetch();
 $stmt->close();
 
 echo "<table>";
 echo "<tr>";
-echo "<th>CustomerID</th>";
-echo "<td>" . $cid . "</td>";
-echo "<th>CompanyName</th>";
+echo "<th>NumberInDeck</th>";
+echo "<td>" . $num_owned . "</td>";
+echo "<th>CardName</th>";
 echo "<td>" . $cname . "</td>";
-echo "<th>ContactName</th>";
-echo "<td>" . $name . "</td>";
-echo "<th>Address</th>";
-echo "<td>" . $adr . "</td>";
-echo "<th>City</th>";
-echo "<td>" . $city . "</td>";
-echo "<th>PostalCode</th>";
-echo "<td>" . $pcode . "</td>";
-echo "<th>Country</th>";
-echo "<td>" . $country . "</td>";
+echo "<th>Cost</th>";
+echo "<td>" . $manacost . "</td>";
 echo "</tr>";
 echo "</table>";
 ?> 

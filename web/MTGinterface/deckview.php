@@ -20,20 +20,20 @@ include '../header.php';
 <body>
     
 
-<!--
+
 <form action=""> 
-  <select name="customers" onchange="showCustomer(this.value)">
+  <select name="customers" onchange="showDeck(this.value)">
     <option value="">Select a customer:</option>
-    <option value="ALFKI">Alfreds Futterkiste</option>
-    <option value="NORTS ">North/South</option>
-    <option value="WOLZA">Wolski Zajazd</option>
+    <option value="1">SYSADMIN</option>
+    <option value="2">TESTUSER1</option>
+    <option value="3">TESTUSER2</option>
   </select>
 </form>
 <br>
-<div id="txtHint">Customer info will be listed here...</div>
+<div id="txtHint">Deck info will be listed here...</div>
 
 <script>
-function showCustomer(str) {
+function showDeck(str) {
   var xhttp;  
   if (str == "") {
     document.getElementById("txtHint").innerHTML = "";
@@ -45,18 +45,16 @@ function showCustomer(str) {
       document.getElementById("txtHint").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "getcustomer.asp?q="+str, true);
+  xhttp.open("GET", "deckquery.php?user="+str, true);
   xhttp.send();
 }
 </script>
--->
 
 
 
-<h1>userDeck</h1>
-  <br>
 
   <?PHP
+  /*
   foreach ($db->query(
   'Select cs.CardName, cs.CardTypes from public.cardstorage cs 
   Join 
@@ -67,7 +65,7 @@ function showCustomer(str) {
  as $row) {
     echo '<b>' . $row['cardname'] . ' ' . $row['Cardtypes'] . ':' . '</b>';
     echo '<br/>';
-  }
+  }*/
   ?>
 
 </body>
