@@ -18,8 +18,8 @@ include '../header.php';
 <body>
     <div class="deckview">
 <?php
-#include 'databaseconnect.php';
-
+include 'databaseconnect.php';
+/*
 try {
   $dbUrl = getenv('DATABASE_URL');
 
@@ -38,13 +38,15 @@ try {
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+*/
+$userdecknum = 2;
 
-#$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2');
-#$stmt->bindValue('num_owned', $numowned, PDO::PARAM_INT);
+$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = ?');
+$stmt->bindValue('1', $userdecknum, PDO::PARAM_INT);
 #$stmt->bindValue('cardname', $cname, PDO::PARAM_STR);
 #$stmt->bindValue('manacost', $manacost, PDO::PARAM_STR);
-#$stmt->execute();
-#$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 #$sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 #from CardStorage cs join deck d 
@@ -59,13 +61,14 @@ echo "<th>NumberInDeck</th>";
 echo "<th>CardName</th>";
 echo "<th>Cost</th>";
 echo "</tr>";
-foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost, cs.multiverseid from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
+#foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost, cs.multiverseid from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
+foreach ($rows as $card) 
 {
   echo "<tr>";
-  echo '<a href="/cardview.php?id=' . $row['multiverseid'] .'">';
-  echo "<td>" . $row['num_owned'] . "</td>";
-  echo "<td>" . $row['cardname'] . "</td>";
-  echo "<td>" . $row['manacost'] . "</td>";
+  echo '<a href="/cardview.php?id=' . $card['multiverseid'] .'">';
+  echo "<td>" . $card['num_owned'] . "</td>";
+  echo "<td>" . $card['cardname'] . "</td>";
+  echo "<td>" . $card['manacost'] . "</td>";
   echo "</a>";
   echo "</tr>";
 }
