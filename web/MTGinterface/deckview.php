@@ -12,11 +12,9 @@
     <link rel="stylesheet" type="text/css" href="../style/main.css">
     <title>DeckViewer</title>
 </head>
-<header>
 <?PHP
 include '../header.php';
 ?>
-</header>
 <body>
     <div class="deckview">
 <?php
@@ -61,12 +59,14 @@ echo "<th>NumberInDeck</th>";
 echo "<th>CardName</th>";
 echo "<th>Cost</th>";
 echo "</tr>";
-foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
+foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost, cs.multiverseid from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
 {
   echo "<tr>";
+  echo '<a href="/cardview.php?id=' . $row['multiverseid'] .'">';
   echo "<td>" . $row['num_owned'] . "</td>";
   echo "<td>" . $row['cardname'] . "</td>";
   echo "<td>" . $row['manacost'] . "</td>";
+  echo "</a>";
   echo "</tr>";
 }
 
@@ -84,9 +84,8 @@ foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStora
 ?> 
     </div>
 </body>
-<footer>
+
 <?PHP
 include '../footer.php';
 ?>
-</footer>
 </html>
