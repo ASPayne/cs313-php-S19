@@ -20,7 +20,7 @@ include '../header.php';
 <body>
     
   <?PHP
-  include 'deckquery.php?user=1';
+  include 'deckquery.php?';
   ?>
 
 </body>
