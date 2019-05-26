@@ -11,11 +11,11 @@ include 'cardquery.php';
     <link rel="stylesheet" type="text/css" href="../style/main.css">
     <title>Cardviewer</title>
 </head>
-<header>
+
 <?PHP
 include '../header.php';
 ?>
-</header>
+
 <body>
 <div class="cardview">    
 <img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['name'];?>" style="float:left;margin-right:15px;">
@@ -78,9 +78,9 @@ echo "<br><br>";
     ?>
 
 </body>
-<footer>
+
 <?PHP
 include '../footer.php';
 ?>
-</footer>
+
 </html>
