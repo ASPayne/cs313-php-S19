@@ -5,35 +5,32 @@ include 'databaseconnect.php';
 #FROM customers WHERE customerid = ?";
 
 
-function test_input($user) {
  # $data = trim($data);
  # $data = stripslashes($data);
  # $data = htmlspecialchars($data);
  # return $data;
 #}
 
+
 $sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 from CardStorage cs join deck d 
 on cs.id = d.card_num 
 where d.deck_owner = " . $_GET['user'];
 
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $_GET['user']);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($num_owned, $cname, $manacost);
-$stmt->fetch();
-$stmt->close();
-
+$stmt = $db->query($sql);
+foreach ($stmt
+ as $row) {
 echo "<table>";
 echo "<tr>";
 echo "<th>NumberInDeck</th>";
-echo "<td>" . $num_owned . "</td>";
+echo "<td>" . $row['num_owned'] . "</td>";
 echo "<th>CardName</th>";
-echo "<td>" . $cname . "</td>";
+echo "<td>" . $row['cardname'] . "</td>";
 echo "<th>Cost</th>";
-echo "<td>" . $manacost . "</td>";
+echo "<td>" . $row['manacost'] . "</td>";
 echo "</tr>";
 echo "</table>";
-}
+ }
+
+
 ?> 
