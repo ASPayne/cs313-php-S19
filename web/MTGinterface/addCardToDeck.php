@@ -1,6 +1,5 @@
 <?PHP
 include 'databaseconnect';
-include 'cardquery.php';
 
 $query1 = 'INSERT INTO CardStorage(multiverseid, CardName, CardTypes) VALUES ("'. $card['multiverseid'] .'", "' . $card['name'] . '", "' . $card['types'] . '")';
 

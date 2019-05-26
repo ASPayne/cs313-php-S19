@@ -29,6 +29,120 @@ DEFAULT
 , statement_timestamp()
 );
 
+INSERT INTO PUBLIC.card_types
+(
+id
+,card_types
+,created_by
+,creation_date
+,last_updated_by
+,last_update_date
+)
+VALUES
+(
+DEFAULT
+, 'Artifact'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Conspiracy'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Creature'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Enchantment'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Instant'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Land'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Phenomenon'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Plane'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Planeswalker'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Scheme'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Sorcery'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Tribal'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+),
+(
+DEFAULT
+, 'Vanguard'
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+, (SELECT id FROM public.user where username = 'SYSADMIN')
+, statement_timestamp()
+);   
 
 INSERT INTO PUBLIC.CardStorage
 (

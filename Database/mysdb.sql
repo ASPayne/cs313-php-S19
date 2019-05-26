@@ -45,12 +45,23 @@ ALTER TABLE PUBLIC.USER
 ALTER TABLE PUBLIC.USER
 	ALTER COLUMN last_updated_by REFERENCES public.user(id);
 
+
+CREATE TABLE public.card_types
+(
+	id 					SERIAL 		NOT NULL PRIMARY KEY,
+	card_types			VARCHAR(15) NOT NULL,
+	created_by     		int         NOT NULL REFERENCES PUBLIC.USER(id),
+	creation_date  		DATE        NOT NULL,
+	last_updated_by 	int         NOT NULL REFERENCES PUBLIC.USER(id),
+	last_update_date 	DATE        NOT NULL 
+);
+
 CREATE TABLE public.CardStorage
 (
 	id 					SERIAL 		PRIMARY KEY,
 	multiverseid 		INT 			NOT NULL,
 	CardName 			VARCHAR(100) 	NOT NULL,
-	CardTypes 			VARCHAR(50) 	NOT NULL,
+	CardTypes 			INT		 		NOT NULL REFERENCES PUBLIC.CARD_TYPES(id),
 	ManaCost 			VARCHAR(50),
 	CMC      			INT,
 	Power    			VARCHAR(3),
@@ -64,14 +75,14 @@ CREATE TABLE public.CardStorage
 
 CREATE TABLE public.inventory
 (
-	id              SERIAL 		NOT NULL PRIMARY KEY,
-	card_num    INT         NOT NULL REFERENCES public.CardStorage(id),
-	card_owner	    INT			NOT NULL REFERENCES PUBLIC.USER(id),
-	num_owned   	INT			NOT NULL,
-	created_by     int           NOT NULL REFERENCES PUBLIC.USER(id),
-	creation_date  DATE          NOT NULL,
-	last_updated_by int           NOT NULL REFERENCES PUBLIC.USER(id),
-	last_update_date  DATE          NOT NULL 
+	id              	SERIAL 		NOT NULL PRIMARY KEY,
+	card_num    		INT         NOT NULL REFERENCES public.CardStorage(id),
+	card_owner	    	INT			NOT NULL REFERENCES PUBLIC.USER(id),
+	num_owned   		INT			NOT NULL,
+	created_by     		int         NOT NULL REFERENCES PUBLIC.USER(id),
+	creation_date  		DATE        NOT NULL,
+	last_updated_by 	int         NOT NULL REFERENCES PUBLIC.USER(id),
+	last_update_date  	DATE        NOT NULL 
 );
 
 CREATE TABLE public.deck
@@ -85,4 +96,3 @@ CREATE TABLE public.deck
 	last_updated_by 	int         NOT NULL REFERENCES PUBLIC.USER(id),
 	last_update_date 	DATE        NOT NULL 
 );
-
