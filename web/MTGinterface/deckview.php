@@ -41,17 +41,18 @@ try {
   die();
 }
 
-$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2');
+#$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2');
 #$stmt->bindValue('num_owned', $numowned, PDO::PARAM_INT);
 #$stmt->bindValue('cardname', $cname, PDO::PARAM_STR);
 #$stmt->bindValue('manacost', $manacost, PDO::PARAM_STR);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+#$stmt->execute();
+#$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 #$sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 #from CardStorage cs join deck d 
 #on cs.id = d.card_num 
 #where d.deck_owner = 1";# . $_GET['user'];
+
 
 echo "<table>";
 
@@ -60,13 +61,23 @@ echo "<th>NumberInDeck</th>";
 echo "<th>CardName</th>";
 echo "<th>Cost</th>";
 echo "</tr>";
-#while ($row) {
-echo "<tr>";
-echo "<td>" . $row['num_owned'] . "</td>";
-echo "<td>" . $row['cardname'] . "</td>";
-echo "<td>" . $row['manacost'] . "</td>";
-echo "</tr>";
-# }
+foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
+{
+
+  echo "<tr>";
+  echo "<td>" . $row['num_owned'] . "</td>";
+  echo "<td>" . $row['cardname'] . "</td>";
+  echo "<td>" . $row['manacost'] . "</td>";
+  echo "</tr>";
+}
+
+#while ($row) { 
+#echo "<tr>";
+#echo "<td>" . $row['num_owned'] . "</td>";
+#echo "<td>" . $row['cardname'] . "</td>";
+#echo "<td>" . $row['manacost'] . "</td>";
+#echo "</tr>";
+ #}
 
  echo "</table>";
 
