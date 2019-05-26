@@ -22,15 +22,12 @@ include '../header.php';
 <?php
 include 'databaseconnect.php';
 
-$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 1');
-$stmt->bindValue(':num_owned', $numowned, PDO::PARAM_INT);
-$stmt->bindValue(':cardname', $cname, PDO::PARAM_STR);
-$stmt->bindValue(':manacost', $manacost, PDO::PARAM_STR);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
+#$stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 1');
+#$stmt->bindValue(':num_owned', $numowned, PDO::PARAM_INT);
+#$stmt->bindValue(':cardname', $cname, PDO::PARAM_STR);
+#$stmt->bindValue(':manacost', $manacost, PDO::PARAM_STR);
+#$stmt->execute();
+#$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 #$sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 #from CardStorage cs join deck d 
@@ -39,8 +36,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo "<table>";
 
-while ($row) {
-
+foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 1') as $row) {
 echo "<tr>";
 echo "<th>NumberInDeck</th>";
 echo "<td>" . $row['num_owned'] . "</td>";
