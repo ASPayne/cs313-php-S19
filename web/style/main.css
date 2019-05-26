@@ -142,7 +142,7 @@ div.deckview #deckviewtable {
   padding: 8px;
 }
 
-#deckviewtable tr:hover {background-color: #ddd;}
+#deckviewtable tr:hover {background-color: #4c4c4c;}
 
 #deckviewtable th {
   padding-top: 12px;
