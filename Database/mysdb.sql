@@ -41,9 +41,9 @@ DEFAULT
 
 
 ALTER TABLE PUBLIC.USER
-	constraint (created_by) REFERENCES public.user(id);
+	ALTER COLUMN created_by REFERENCES public.user(id);
 ALTER TABLE PUBLIC.USER
-	constraint (last_updated_by) REFERENCES public.user(id);
+	ALTER COLUMN last_updated_by REFERENCES public.user(id);
 
 CREATE TABLE public.CardStorage
 (
