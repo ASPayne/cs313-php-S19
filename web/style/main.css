@@ -128,6 +128,7 @@ div.deckview {
   background-color: #3c3c3c;
   color: #f2f1f0;
   overflow-y: auto;
+  padding: 5px;
 }
 
 div.deckview #deckviewtable {
@@ -140,8 +141,6 @@ div.deckview #deckviewtable {
   border: 1px solid #ddd;
   padding: 8px;
 }
-
-#deckviewtable tr:nth-child(even){background-color: #f2f2f2;}
 
 #deckviewtable tr:hover {background-color: #ddd;}
 
