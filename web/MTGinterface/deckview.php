@@ -60,13 +60,13 @@ echo "<th>NumberInDeck</th>";
 echo "<th>CardName</th>";
 echo "<th>Cost</th>";
 echo "</tr>";
-while ($row) {
+#while ($row) {
 echo "<tr>";
 echo "<td>" . $row['num_owned'] . "</td>";
 echo "<td>" . $row['cardname'] . "</td>";
 echo "<td>" . $row['manacost'] . "</td>";
 echo "</tr>";
- }
+# }
 
  echo "</table>";
 
