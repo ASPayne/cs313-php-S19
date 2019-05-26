@@ -21,7 +21,7 @@ include '../header.php';
     
 
 
-<form action=""> 
+<form method="post" action=""> 
   <select name="customers" onchange="showDeck(this.value)">
     <option value="">Select a customer:</option>
     <option value="1">SYSADMIN</option>
@@ -33,6 +33,7 @@ include '../header.php';
 <div id="txtHint">Deck info will be listed here...</div>
 
 <script>
+  
 function showDeck(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "";
@@ -47,13 +48,13 @@ function showDeck(str) {
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
+                document.getElementById("txtHint").innerHTML = str;
             }
         };
         xmlhttp.open("GET","deckquery.php?user="+str,true);
         xmlhttp.send();
     }
-}
+}*/
 </script>
 
 

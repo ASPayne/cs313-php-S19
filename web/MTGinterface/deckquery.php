@@ -4,6 +4,14 @@ include 'databaseconnect.php';
 #$sql = "SELECT customerid, companyname, contactname, address, city, postalcode, country
 #FROM customers WHERE customerid = ?";
 
+
+function test_input($user) {
+ # $data = trim($data);
+ # $data = stripslashes($data);
+ # $data = htmlspecialchars($data);
+ # return $data;
+#}
+
 $sql = "SELECT d.num_owned, cs.cardname, cs.manacost 
 from CardStorage cs join deck d 
 on cs.id = d.card_num 
@@ -27,4 +35,5 @@ echo "<th>Cost</th>";
 echo "<td>" . $manacost . "</td>";
 echo "</tr>";
 echo "</table>";
+}
 ?> 
