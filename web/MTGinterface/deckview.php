@@ -39,7 +39,13 @@ try {
   die();
 }
 */
-$userdecknum = 3;
+if (isset($_GET["decknum"])) {
+  $deckIdNum = $_GET["decknum"];
+}
+else{
+  $deckIdNum = 1;
+}
+$userdecknum = $deckIdNum;
 
 $stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = ?');
 $stmt->bindValue('1', $userdecknum, PDO::PARAM_INT);
