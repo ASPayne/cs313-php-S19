@@ -39,7 +39,7 @@ try {
   die();
 }
 */
-$userdecknum = 2;
+$userdecknum = 3;
 
 $stmt = $db->prepare('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = ?');
 $stmt->bindValue('1', $userdecknum, PDO::PARAM_INT);
