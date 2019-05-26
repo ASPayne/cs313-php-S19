@@ -36,14 +36,15 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo "<table>";
 
-while ($row) {
-
 echo "<tr>";
 echo "<th>NumberInDeck</th>";
-echo "<td>" . $row['num_owned'] . "</td>";
 echo "<th>CardName</th>";
-echo "<td>" . $row['cardname'] . "</td>";
 echo "<th>Cost</th>";
+echo "</tr>";
+while ($row) {
+echo "<tr>";
+echo "<td>" . $row['num_owned'] . "</td>";
+echo "<td>" . $row['cardname'] . "</td>";
 echo "<td>" . $row['manacost'] . "</td>";
 echo "</tr>";
  }
