@@ -122,6 +122,38 @@ ul.navbar li.navitem.login li.navitem.active {
   padding-bottom: 8px;
 }
 
+div.deckview {
+  max-width: 400px;
+  margin: auto;
+  background-color: #3c3c3c;
+  color: #f2f1f0;
+  overflow-y: auto;
+}
+
+div.deckview #deckviewtable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#deckviewtable td, #deckviewtable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#deckviewtable tr:nth-child(even){background-color: #f2f2f2;}
+
+#deckviewtable tr:hover {background-color: #ddd;}
+
+#deckviewtable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #e95420;
+  color: #3c3c3c;
+}
+
+
 /* to be used at a later time*/
 /*.gtk_color_scheme {
 @define-color bg_color #f2f1f0;

@@ -18,7 +18,7 @@ include '../header.php';
 ?>
 </header>
 <body>
-    
+    <div class="deckview">
 <?php
 #include 'databaseconnect.php';
 
@@ -54,7 +54,7 @@ try {
 #where d.deck_owner = 1";# . $_GET['user'];
 
 
-echo "<table>";
+echo "<table id='deckviewtable'>";
 
 echo "<tr>";
 echo "<th>NumberInDeck</th>";
@@ -63,7 +63,6 @@ echo "<th>Cost</th>";
 echo "</tr>";
 foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStorage cs join deck d on cs.id = d.card_num where d.deck_owner = 2') as $row)
 {
-
   echo "<tr>";
   echo "<td>" . $row['num_owned'] . "</td>";
   echo "<td>" . $row['cardname'] . "</td>";
@@ -83,7 +82,7 @@ foreach ($db->query('SELECT d.num_owned, cs.cardname, cs.manacost from CardStora
 
 
 ?> 
-
+    </div>
 </body>
 <footer>
 <?PHP
