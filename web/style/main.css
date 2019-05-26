@@ -6,7 +6,8 @@ header {
 body {
   background-color: #f2f1f0;
   color: #3c3c3c;
-  margin: 0px;
+  margin: auto;
+  max-width: 1000px;
 }
 
 main {
@@ -128,7 +129,7 @@ div.deckview {
   background-color: #3c3c3c;
   color: #f2f1f0;
   overflow-y: auto;
-  padding: 5px;
+  padding: 15px;
 }
 
 div.deckview #deckviewtable {
@@ -152,6 +153,14 @@ div.deckview #deckviewtable {
   color: #3c3c3c;
 }
 
+div.cardview{
+  max-width: 400px;
+  margin: auto;
+  background-color: #8c8c8c;
+  color: #3c3c3c;
+  overflow-y: auto;
+  padding: 15px;
+}
 
 /* to be used at a later time*/
 /*.gtk_color_scheme {

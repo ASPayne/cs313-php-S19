@@ -17,7 +17,7 @@ include '../header.php';
 ?>
 </header>
 <body>
-    
+<div class="cardview">    
 <img src="<?PHP echo $card['imageUrl'];?>" alt="<?PHP echo $card['name'];?>" style="float:left;margin-right:15px;">
 <h1> <?PHP echo $card['name'];?> </h1>
 <br/>
@@ -49,7 +49,7 @@ function AddToDeck(str) {
   xhttp.send("<?php echo "id=".$cardIdNum;?>");
 }
 </script>
-
+</div>
 
 <?PHP
 /*
